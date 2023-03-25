@@ -31,9 +31,8 @@ import Line from "@/components/icons/Line.vue";
 import { gsap } from "gsap";
 import { onMounted } from "vue";
 
-let tl = gsap.timeline();
-
 onMounted(() => {
+  let tl = gsap.timeline();
   tl.fromTo(
     ".image",
     { height: 0 },
@@ -45,8 +44,6 @@ onMounted(() => {
     0
   );
 });
-
-// import { lenis } from "../helpers/animations";
 </script>
 
 <style lang="scss" scoped>
