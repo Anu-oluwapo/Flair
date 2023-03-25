@@ -28,7 +28,7 @@
 
 <script setup>
 import Line from "@/components/icons/Line.vue";
-import { gsap } from "gsap";
+import gsap from "gsap";
 import { onMounted } from "vue";
 
 onMounted(() => {
