@@ -19,8 +19,20 @@
       </div>
 
       <div class="images">
-        <div class="image"><img src="/boy.png" /></div>
-        <div class="image"><img src="/girl.png" /></div>
+        <div
+          @mouseover="scale('boy')"
+          @mouseleave="scale('boy', true)"
+          class="image"
+        >
+          <img src="/boy.png" id="boy" />
+        </div>
+        <div
+          @mouseover="scale('girl')"
+          @mouseleave="scale('girl', true)"
+          class="image"
+        >
+          <img id="girl" src="/girl.png" />
+        </div>
       </div>
     </div>
   </section>
@@ -31,8 +43,26 @@ import Line from "@/components/icons/Line.vue";
 import gsap from "gsap";
 import { onMounted } from "vue";
 
+function scale(id, reverse) {
+  let tl = gsap.timeline();
+  tl.to(`#${id}`, {
+    transform: "scale(120%)",
+  });
+
+  if (reverse) {
+    tl.to(
+      `#${id}`,
+      {
+        transform: "scale(100%)",
+      },
+      0
+    );
+  }
+}
+
 onMounted(() => {
   let tl = gsap.timeline();
+
   tl.fromTo(
     ".image",
     { height: 0 },
