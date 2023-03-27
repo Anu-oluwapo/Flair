@@ -28,7 +28,7 @@
 
 <script setup>
 import Line from "@/components/icons/Line.vue";
-import gsap from "gsap";
+import { gsap } from "gsap";
 import { onMounted } from "vue";
 
 onMounted(() => {
@@ -37,16 +37,22 @@ onMounted(() => {
     ".image",
     { height: 0 },
     { duration: 1.5, stagger: 0.2, height: "auto", ease: "Power4.easeInOut" },
-    0.1
+    1
   ).from(
     "img",
-    { duration: 1.5, stagger: 0.2, scale: 2, ease: "Power4.easeInOut" },
-    0
+    {
+      duration: 1.5,
+      stagger: 0.2,
+      transform: "scale(200%)",
+      ease: "Power4.easeInOut",
+    },
+    1
   );
 });
 </script>
 
 <style lang="scss" scoped>
+@import "../assets/variables.scss";
 .line {
   position: absolute;
   top: 0;
@@ -58,5 +64,37 @@ onMounted(() => {
   right: 0;
   transform: scaleX(-1);
   z-index: -1;
+}
+
+.images {
+  display: flex;
+  width: 100%;
+  position: relative;
+  height: 100%;
+  .image {
+    background: $gray;
+    position: absolute;
+    width: 50%;
+    overflow: hidden;
+    height: auto;
+    &:nth-child(2) {
+      background: $gray2;
+      top: 10rem;
+      right: 5rem;
+    }
+    img {
+      width: 100%;
+      display: block;
+      margin: 0 auto;
+      //   transition: all 3s ease;
+      // margin-left: ;
+    }
+
+    &:hover {
+      img {
+        transform: scale(120%);
+      }
+    }
+  }
 }
 </style>
