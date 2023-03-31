@@ -46,7 +46,7 @@ import { onMounted } from "vue";
 function scale(id, reverse) {
   let tl = gsap.timeline();
   tl.to(`#${id}`, {
-    transform: "scale(120%)",
+    transform: "scale(110%)",
   });
 
   if (reverse) {
@@ -69,7 +69,7 @@ onMounted(() => {
     { duration: 1.5, stagger: 0.2, height: "auto", ease: "Power4.easeInOut" },
     1
   ).from(
-    "img",
+    ".image img",
     {
       duration: 1.5,
       stagger: 0.2,
